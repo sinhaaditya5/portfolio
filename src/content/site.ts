@@ -44,6 +44,7 @@ export const navLinks = [
   { id: 'work', label: 'Work' },
   { id: 'about', label: 'About' },
   { id: 'research', label: 'Research' },
+  { id: 'kaggle', label: 'Kaggle' },
   { id: 'stack', label: 'Stack' },
   { id: 'contact', label: 'Contact' },
 ] as const;

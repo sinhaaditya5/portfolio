@@ -33,9 +33,11 @@ export default function CommandPalette({ open, onClose }: { open: boolean; onClo
       { name: '/about', hint: 'About me', run: go('/#about') },
       { name: '/now', hint: 'What I’m building & learning', run: go('/#now') },
       { name: '/research', hint: 'Research notes', run: go('/#research') },
+      { name: '/kaggle', hint: 'Kaggle & applied research', run: go('/#kaggle') },
       { name: '/system', hint: 'System map', run: go('/#systems') },
       { name: '/stack', hint: 'Toolchain', run: go('/#stack') },
       { name: '/github', hint: `github.com/${site.github.handle} ↗`, run: open(site.github.url) },
+      { name: '/kaggle-profile', hint: 'kaggle.com/sinhaaditya5 ↗', run: open('https://www.kaggle.com/sinhaaditya5') },
       { name: '/contact', hint: 'Get in touch', run: go('/#contact') },
       { name: '/resume', hint: 'Resume (PDF) ↗', run: open(site.resumeUrl) },
       {

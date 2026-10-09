@@ -30,7 +30,7 @@ export function seo(siteUrl: string | undefined): Plugin {
           name: site.education.school,
         },
         knowsAbout: ['Machine Learning', 'Quantitative Research', 'Data Engineering', 'Cloud Systems'],
-        sameAs: [site.github.url, site.linkedin.url],
+        sameAs: [site.github.url, site.linkedin.url, 'https://www.kaggle.com/sinhaaditya5'],
       },
       {
         '@type': 'WebSite',

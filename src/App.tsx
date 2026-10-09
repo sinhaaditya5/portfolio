@@ -10,6 +10,7 @@ import { Code } from './sections/Code';
 import { Contact, Footer } from './sections/Contact';
 import { Experience } from './sections/Experience';
 import { Hero } from './sections/Hero';
+import { Kaggle } from './sections/Kaggle';
 import { Now } from './sections/Now';
 import { Research } from './sections/Research';
 import { Signal } from './sections/Signal';
@@ -36,7 +37,8 @@ function Home() {
       <Stack />
       <About />
       <Code />
-      <Marker step="09 → 10" text="System ready" />
+      <Kaggle />
+      <Marker step="10 → 11" text="System ready" />
       <Contact />
     </>
   );
