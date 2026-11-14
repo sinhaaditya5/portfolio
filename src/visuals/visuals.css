@@ -1070,6 +1070,55 @@
   grid-template-columns: 64px 1fr;
 }
 
+/* ---------- Salt Battery Lab ---------- */
+.sb__bars .ds__bar.is-top .ds__bar-track span {
+  background: var(--text-3);
+}
+.sb__gates {
+  display: grid;
+  gap: 8px;
+}
+.sb__gates li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- PARC-Delta ---------- */
+.pd__mirror {
+  width: 100%;
+  height: auto;
+}
+.pd__field {
+  fill: none;
+  stroke: var(--line-2);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.pd__coil {
+  fill: var(--violet-soft);
+  opacity: 0.7;
+}
+.pd__orbit {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.2s var(--ease-in-out);
+}
+.is-in .pd__orbit {
+  stroke-dashoffset: 0;
+}
+.pd__target {
+  fill: var(--lime);
+}
+.pd__bars .ds__bar.is-top .ds__bar-track span {
+  background: var(--lime);
+}
+
 /* ---------- Agentic core ---------- */
 .ag .ds__rail li.is-on {
   background: var(--violet-soft);

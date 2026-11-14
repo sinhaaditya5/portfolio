@@ -4,8 +4,10 @@ import { DataScoutVisual } from './DataScoutVisual';
 import { DemandVisual } from './DemandVisual';
 import { IndiEyeVisual } from './IndiEyeVisual';
 import { IndraVisual } from './IndraVisual';
+import { ParcDeltaVisual } from './ParcDeltaVisual';
 import { PruningVisual } from './PruningVisual';
 import { RegimeVisual } from './RegimeVisual';
+import { SaltBatteryVisual } from './SaltBatteryVisual';
 import { SanjivaniVisual } from './SanjivaniVisual';
 
 export const projectVisuals: Record<string, ComponentType> = {
@@ -17,4 +19,6 @@ export const projectVisuals: Record<string, ComponentType> = {
   'sanjivani-ai': SanjivaniVisual,
   'agentic-core': AgentVisual,
   'llm-pruning-explainability': PruningVisual,
+  'salt-battery-lab': SaltBatteryVisual,
+  'parc-delta-lab': ParcDeltaVisual,
 };

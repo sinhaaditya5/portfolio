@@ -108,7 +108,7 @@ export function Work() {
           label="Selected Work"
           id="work-title"
           title={['Selected', <span className="outline" key="w">work</span>]}
-          lede="Eight systems across data platforms, quant research, ML platforms, agentic AI and interpretability. Each one is a pipeline, not a notebook — click through for the case study."
+          lede="Ten systems across data platforms, quant research, ML platforms, agentic AI, interpretability and engineering research. Each one is a pipeline, not a notebook — click through for the case study."
         />
         <div className="work__list">
           {projects.map((p) => {

@@ -517,6 +517,128 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    slug: 'salt-battery-lab',
+    index: '09',
+    category: 'Engineering Research',
+    year: '2026',
+    title: 'Salt Battery Lab',
+    subtitle: 'A sodium “salt battery” startup, simulated end to end',
+    oneLiner:
+      'From DFT and cell models to CAD, PCB and techno-economics — one parameter set, one claims ledger, one rebuild script, and an honest go/no-go verdict.',
+    tech: ['Python', 'PyBaMM', 'Quantum ESPRESSO', 'uMLIP', 'build123d', 'KiCad', 'Blender', 'AWS'],
+    metrics: [
+      { value: '16', label: 'Simulation stages' },
+      { value: '78', label: 'Tests passing · 2 skipped' },
+      { value: '164', label: 'Logged sources' },
+      { value: '30', label: 'Architectures screened' },
+    ],
+    flow: ['Claims ledger', 'DFT + cell models', 'Thermal · TEA', 'CAD · PCB', 'Go / no-go'],
+    accent: 'cyan',
+    context: 'Pre-prototype study · v1.1.0',
+    links: [{ label: 'Source', href: 'https://github.com/sinhaaditya5/salt-battery-lab' }],
+    caseStudy: {
+      problem:
+        'Two startup briefs: a water-based sodium-ion battery you’re allowed to put indoors for data-centre and telecom UPS in India, and salt-derived chemistries held to 360 Wh/kg, a 5-minute charge for 1,500 km, $3 and non-flammability. Before building a cell, the question is whether the physics and the economics allow either company to exist.',
+      approach: [
+        {
+          title: 'Tag every number',
+          body: 'Each figure carries an evidence tag — literature, vendor, calculated, simulated, assumption or target — that resolves in a claims ledger. A linter checks the deck, report and one-pager against it.',
+        },
+        {
+          title: 'Model the aqueous track',
+          body: 'Ten simulations: a kit re-run, PyBaMM validation, an R1 DFN with Monte Carlo, gas and water budgets, a uMLIP + DFT+U screen, build-up, thermal and abuse, techno-economics and market sizing.',
+        },
+        {
+          title: 'Screen salt-derived chemistries',
+          body: 'A 30-architecture feasibility matrix, DFT+U on Na/NaCl/Cl₂ and Fe/Co/Ni chlorides in Quantum ESPRESSO on AWS spot, a salt-iron cell model and 1 GWh/yr factory scenarios.',
+        },
+        {
+          title: 'Design the hardware',
+          body: 'CAD in build123d with headless engineering drawings, Blender renders, and the SCM-1 test-monitor board in KiCad with host-tested firmware — R1 block, SM-48T module, P1 cell and S-cell R0, all concepts.',
+        },
+        {
+          title: 'Rebuild from one script',
+          body: 'A single run script regenerates every result from one parameter set, so a changed assumption flows through to the verdict.',
+        },
+      ],
+      results: [
+        'Aqueous track: the R1 block lands at 17.6 Wh/kg and ~$350/kWh against ~$70/kWh for LFP packs — a documented no-go for the factory company.',
+        'Project Salt: the best salt-derived cell reaches P50 259 Wh/kg vs the 360 target; a 5-minute 1,500 km charge needs 3.8 MW, above the 3.75 MW MCS ceiling.',
+        'DFT conversion voltages within +0.11 to +0.27 V of experiment for Fe, Co and Ni chlorides.',
+        'Validation misses are recorded, not hidden: the PyBaMM sodium DFN misses its 60 mV gate by 67–121 mV.',
+        'Narrowed to one testable lever — a thin β″-alumina separator with a high-loading salt-iron cathode — with the S-cell R0 build package to test it.',
+      ],
+      resultsNote: 'Pre-prototype: no cell has been built, so nothing is measured. Figures from the project README.',
+      details: [
+        { label: 'Tracks', value: 'Aqueous Na-ion · Project Salt' },
+        { label: 'DFT', value: 'Quantum ESPRESSO 7.6' },
+        { label: 'Hardware', value: 'build123d · KiCad 10' },
+        { label: 'Release', value: 'v1.1.0 · Nov 2026' },
+      ],
+    },
+  },
+  {
+    slug: 'parc-delta-lab',
+    index: '10',
+    category: 'Physics Research',
+    year: '2026',
+    title: 'PARC-Delta Lab',
+    subtitle: 'Steering fusion-alpha energy into fuel ions',
+    oneLiner:
+      'A reproducible p–¹¹B alpha-channeling research model, plus PDX-1 — a bench test stand designed, simulated and rendered from a single parameter file.',
+    tech: ['Python', 'NumPy', 'Monte Carlo', 'Boris pusher', 'CAD (STEP)', 'Blender', 'GitHub Actions'],
+    metrics: [
+      { value: '76/76', label: 'Research tests passing' },
+      { value: '4,200', label: 'Boris-pushed alphas' },
+      { value: '7.5e-10', label: 'Max re-run difference' },
+      { value: '150', label: 'Part STEP model' },
+    ],
+    flow: ['p–¹¹B kinetics', 'Alpha slowing-down', 'Magnet + orbits', 'Bench physics', 'PDX-1 design'],
+    accent: 'violet',
+    context: 'Concept study · v1.6.0',
+    links: [{ label: 'Source', href: 'https://github.com/sinhaaditya5/PARC-Delta-Lab' }],
+    caseStudy: {
+      problem:
+        'In p–¹¹B fusion the products are fast alpha particles. If their energy could be channelled into fuel ions through ion Bernstein waves instead of heating electrons, the economics change. PARC-Delta asks how far that idea survives contact with kinetic models — and what a first bench experiment would have to look like.',
+      approach: [
+        {
+          title: 'Model the kinetics',
+          body: 'Linear and finite-k∥ ion-Bernstein-wave kinetics and sequential p–¹¹B → 3α birth kinematics, across 12 modules.',
+        },
+        {
+          title: 'Slow the alphas down',
+          body: 'Conserving Coulomb Monte Carlo and time-dependent Rosenbluth, Takizuka–Abe and Nanbu slowing-down, with collision operators cross-checked against each other.',
+        },
+        {
+          title: 'Design the magnet and confinement',
+          body: 'A 3 T mirror coil set, and full-orbit Boris integration of 4,200 alphas to measure wall loss against central field and target placement.',
+        },
+        {
+          title: 'Build PDX-1 from one file',
+          body: 'Magnet, bench physics, a 150-part STEP model, an A0 general-arrangement drawing, renders, report, deck and video — all generated from a single parameter file.',
+        },
+        {
+          title: 'Make it reproducible',
+          body: 'Six archived campaigns (v1.1 → v1.6), a SHA-256-verified release, and CI with CodeQL; every headline number is regenerated by one make target.',
+        },
+      ],
+      results: [
+        'Independent re-run of the full v1.6 campaign: 1,122 values across 11 files, maximum relative difference 7.5 × 10⁻¹⁰.',
+        'Orbit solver matches adiabatic loss-cone theory: 39.67% simulated end loss vs 39.69% analytic.',
+        'Alpha wall loss falls from 76% at 1 T to 0.1% at the 3 T design point.',
+        'A ~10 T peak winding field ruled out NbTi, moving the baseline to REBCO HTS at 20 K.',
+        'Fusion-born alphas from a µA beam are ~10⁹× too sparse to drive IBWs, so Phase 2 needs a surrogate energetic-ion source.',
+      ],
+      resultsNote: 'A concept study, not a reactor: nothing here establishes fusion gain or net electricity. Figures from the project README.',
+      details: [
+        { label: 'Model', value: 'PARC-Delta v1.6 · 12 modules' },
+        { label: 'Magnet', value: '3 T REBCO mirror' },
+        { label: 'Stand', value: 'PDX-1 · 6.9 m linear' },
+        { label: 'Release', value: 'v1.6.0 · Nov 2026' },
+      ],
+    },
+  },
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
