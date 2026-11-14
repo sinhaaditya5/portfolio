@@ -137,7 +137,7 @@ For local `wrangler dev`, copy `.dev.vars.example` → `.dev.vars` (gitignored).
 ├── src/
 │   ├── content/               # ← ALL site copy lives here
 │   │   ├── site.ts            #   identity, links, education
-│   │   ├── projects.ts        #   the five case studies
+│   │   ├── projects.ts        #   the ten case studies
 │   │   └── profile.ts         #   experience, research notes, stack, system map, GitHub picks
 │   ├── sections/              # Hero, Signal, Work, SystemMap, Experience, Research, Stack, About, Code, Contact
 │   ├── visuals/               # Custom project visualizations (SVG/CSS; all labelled illustrative)

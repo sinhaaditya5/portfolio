@@ -29,7 +29,7 @@ export function seo(siteUrl: string | undefined): Plugin {
           '@type': 'CollegeOrUniversity',
           name: site.education.school,
         },
-        knowsAbout: ['Machine Learning', 'Quantitative Research', 'Data Engineering', 'Cloud Systems'],
+        knowsAbout: ['Machine Learning', 'Quantitative Research', 'Data Engineering', 'Cloud Systems', 'Scientific Computing'],
         sameAs: [site.github.url, site.linkedin.url, 'https://www.kaggle.com/sinhaaditya5'],
       },
       {

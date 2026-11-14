@@ -30,7 +30,7 @@ interface ApiRepo {
   fork?: boolean;
 }
 
-const CACHE_KEY = 'gh-repos-v1';
+const CACHE_KEY = 'gh-repos-v2';
 const CACHE_MS = 30 * 60 * 1000;
 
 /** The curated list with no live numbers — always renders, even offline. */
@@ -38,7 +38,7 @@ export function snapshot(): RepoResult {
   return {
     repos: featuredRepos.map((r) => ({
       ...r,
-      url: `${site.github.url}/${r.name}`,
+      url: r.url ?? `${site.github.url}/${r.name}`,
       stars: null,
       pushedAt: null,
     })),
@@ -68,7 +68,7 @@ function merge(list: ApiRepo[]): RepoResult {
       name: f.name,
       description: f.description,
       language: live?.language || f.language,
-      url: live?.html_url || live?.url || `${site.github.url}/${f.name}`,
+      url: live?.html_url || live?.url || f.url || `${site.github.url}/${f.name}`,
       stars: live ? (live.stargazers_count ?? live.stars ?? 0) : null,
       pushedAt: live ? (live.pushed_at ?? live.pushedAt ?? null) : null,
     };

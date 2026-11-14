@@ -109,6 +109,36 @@ export const researchNotes: ResearchNote[] = [
       'Signals evaluated on Sharpe ratio, turnover and drawdown, with out-of-sample test periods as the final check.',
     formula: 'αᵢ,ₜ → neutralize → decay → w',
   },
+  {
+    id: 'N-04',
+    title: 'Salt Battery Lab',
+    kind: 'Electrochemistry · Techno-economics',
+    question: 'Can a salt-derived sodium battery hit its founder targets before a single cell is built?',
+    fields: [
+      { label: 'Methods', value: 'DFT+U (Quantum ESPRESSO) · PyBaMM DFN cell models · Monte Carlo · TEA' },
+      { label: 'Scope', value: '16 simulations · 30 architectures · 164 logged sources' },
+      { label: 'Discipline', value: 'Every number evidence-tagged in a claims ledger' },
+    ],
+    finding:
+      'Best salt-derived cell reaches P50 259 Wh/kg vs a 360 target; the aqueous R1 block lands at 17.6 Wh/kg and ~$350/kWh — a documented no-go, narrowed to one testable separator lever.',
+    formula: '2 Na + MCl₂ → 2 NaCl + M',
+    href: '/work/salt-battery-lab',
+  },
+  {
+    id: 'N-05',
+    title: 'PARC-Delta: Alpha Channeling',
+    kind: 'Plasma physics · Reproducible research',
+    question: 'Can fusion-alpha energy be steered into fuel ions — and what would a bench test need?',
+    fields: [
+      { label: 'Methods', value: 'IBW kinetics · Coulomb Monte Carlo · Boris full-orbit integration' },
+      { label: 'Design', value: 'PDX-1 · 3 T REBCO mirror · 150-part CAD from one parameter file' },
+      { label: 'Checks', value: '76/76 tests · independent re-run within 7.5 × 10⁻¹⁰' },
+    ],
+    finding:
+      'Orbit solver matches loss-cone theory (39.67% vs 39.69%); wall loss drops to 0.1% at 3 T. Fusion-born alphas are ~10⁹× too sparse to drive IBWs, so Phase 2 needs a surrogate ion source.',
+    formula: 'p + ¹¹B → 3α',
+    href: '/work/parc-delta-lab',
+  },
 ];
 
 export interface StackGroup {
@@ -123,8 +153,8 @@ export const stack: StackGroup[] = [
   { id: '01', label: 'Languages', items: ['Python', 'C++', 'SQL', 'JavaScript', 'Rust'] },
   {
     id: '02',
-    label: 'ML & Quant',
-    items: ['XGBoost', 'Prophet', 'HMM', 'K-Means', 'SHAP', 'Llama 3', 'MLflow', 'Backtesting'],
+    label: 'ML, Quant & Simulation',
+    items: ['XGBoost', 'Prophet', 'HMM', 'K-Means', 'SHAP', 'Llama 3', 'MLflow', 'Backtesting', 'PyBaMM', 'Quantum ESPRESSO (DFT)', 'Monte Carlo'],
   },
   { id: '03', label: 'Data', items: ['PostgreSQL', 'DynamoDB', 'Pandas', 'NumPy', 'Scikit-learn'] },
   { id: '04', label: 'Web', items: ['FastAPI', 'Streamlit', 'Plotly', 'Next.js', 'React'] },
@@ -133,7 +163,7 @@ export const stack: StackGroup[] = [
     label: 'Cloud',
     items: ['AWS', 'S3', 'Lambda', 'API Gateway', 'DynamoDB', 'Bedrock', 'IAM'],
   },
-  { id: '06', label: 'Tooling', items: ['Git', 'Docker', 'pytest', 'Alembic', 'yfinance', 'Uvicorn'] },
+  { id: '06', label: 'Tooling', items: ['Git', 'Docker', 'pytest', 'Alembic', 'yfinance', 'Uvicorn', 'build123d (CAD)', 'KiCad', 'Blender'] },
   {
     id: '07',
     label: 'Streaming & Geo',
@@ -180,15 +210,15 @@ export const systemNodes: SystemNode[] = [
     id: 'model',
     label: 'Model',
     caption: 'Pick the simplest model that captures the structure.',
-    examples: ['DBSCAN clusters and a weighted evidence model', 'XGBoost, Hidden Markov Models + K-Means, Prophet', 'Llama 3 (fine-tuned)', 'Agents on Amazon Bedrock'],
-    projects: ['INDRA', 'Regime Detection', 'DemandIQ', 'IndiEye', 'DataScout'],
+    examples: ['DBSCAN clusters and a weighted evidence model', 'XGBoost, Hidden Markov Models + K-Means, Prophet', 'Llama 3 (fine-tuned)', 'Agents on Amazon Bedrock', 'DFT+U, PyBaMM cell models and full-orbit plasma simulation'],
+    projects: ['INDRA', 'Regime Detection', 'DemandIQ', 'IndiEye', 'DataScout', 'Salt Battery Lab', 'PARC-Delta'],
   },
   {
     id: 'evaluation',
     label: 'Evaluation',
     caption: 'Measure it the way it will be used.',
-    examples: ['A verification receipt with published factor coverage', 'MAE per SKU; regime accuracy with class weighting', 'Sharpe, turnover, drawdown, out-of-sample', 'Explanation faithfulness (FCor)'],
-    projects: ['INDRA', 'DemandIQ', 'Regime Detection', 'Alpha Research', 'LLM Pruning'],
+    examples: ['A verification receipt with published factor coverage', 'MAE per SKU; regime accuracy with class weighting', 'Sharpe, turnover, drawdown, out-of-sample', 'Explanation faithfulness (FCor)', 'Evidence-tagged claims ledgers; validation gates recorded even when missed'],
+    projects: ['INDRA', 'DemandIQ', 'Regime Detection', 'Alpha Research', 'LLM Pruning', 'Salt Battery Lab', 'PARC-Delta'],
   },
   {
     id: 'deployment',
@@ -220,12 +250,14 @@ export const signalKeywords = [
  * taken from each repo's README. Live stars / language / last push are merged
  * in from the GitHub API when it is reachable.
  */
-export const featuredRepos = [
+export const featuredRepos: { name: string; description: string; language: string; url?: string }[] = [
   { name: 'Demand_IQ', description: 'Retail demand forecasting & replenishment engine — Prophet + XGBoost, FastAPI, Streamlit.', language: 'Python' },
   { name: 'Data_scout', description: 'Agentic AI data analyst on Amazon Bedrock — natural-language questions, sandboxed Python answers.', language: 'Python' },
   { name: 'Indieye-ml', description: 'IndiEye ML service — regime classification, strategy, key levels and backtest APIs.', language: 'Python' },
   { name: 'sanjivani-ai', description: 'Multimodal crisis intelligence for Bihar floods — post triage, flood segmentation and resource forecasts behind one FastAPI.', language: 'Python' },
   { name: 'Indieye-news-sentiment', description: 'IndiEye news aggregation and LLM-powered sentiment & briefing service.', language: 'TypeScript' },
+  { name: 'salt-battery-lab', description: 'Sodium salt-battery startup study — DFT, cell models, CAD, PCB, techno-economics and a go/no-go verdict from one rebuild script.', language: 'Python', url: 'https://github.com/sinhaaditya5/salt-battery-lab' },
+  { name: 'PARC-Delta-Lab', description: 'p–¹¹B alpha-channeling research model and the PDX-1 test-stand concept — kinetics, orbits, magnet, CAD.', language: 'Python', url: 'https://github.com/sinhaaditya5/PARC-Delta-Lab' },
   { name: 'CNN_candleStick', description: 'OHLC → candlestick images → 2D CNN pattern classifier, with live inference over WebSocket.', language: 'Python' },
 ];
 
